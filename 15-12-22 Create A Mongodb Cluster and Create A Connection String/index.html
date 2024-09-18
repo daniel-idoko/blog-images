@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create A Mongodb Cluster and Create A Connection String</title>
+    <link rel="stylesheet" href="./style.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Acme&display=swap"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Questrial&display=swap"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Acme&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Acme&display=swap"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class="container" style="max-width: 750px; margin: 0 auto">
+
+        <!-- ** Introduction -->
+        <div class="topic-holder">
+            <h3 class="topic">Introduction</h3>
+            <div class="line"></div>
+        </div>
+       
+        <div class="paragraphs-holder">
+            <p class="paragraph">Creating a Mongo Database Cluster is the first step to working with mongodb. This article will take you through a step by step guide on how to create a free mongo database in the <a target="_blank" href="#">mongodb official website</a> and generate a <strong class="important-text">Database Connection URL</strong>.</p>
+
+            <blockquote class="definition">
+                <p class="quote-paragraph">A Database Connection URL is a string that your DBMS JDBC driver uses to connect to a database. It can contain information such as where to search for the database, the name of the database to connect to, and configuration properties.</p>
+                <p class="ref">ref: <a target="_blank" href="https://docs.oracle.com/javase/tutorial/jdbc/basics/connecting.html#:~:text=A%20database%20connection%20URL%20is,connect%20to%2C%20and%20configuration%20properties.">docs.oracle.com</a></p>
+            </blockquote>
+        </div>
+
+        <!-- ** Introduction -->
+        <div class="topic-holder">
+           <h3 class="topic">Create a Free Mongodb Atlas Account</h3>
+           <div class="line"></div>
+       </div>
+       <div class="paragraphs-holder">
+        <p class="paragraph">To use mongodb, you'll need a free <strong class="important-text">MongoDB Atlas Account</strong>. Follow the following steps to do so:</p>
+            <div class="list-holder paragraph">
+                <!--** Ordered List -->
+                <ol>
+                    <!-- ** Item 1 -->
+                    <li class="list"> Head to the <a target="_blank" href="https://cloud.mongodb.com/" class="blog-link">mongodb official website</a></li>
+                    <li class="list"> Click on "try free" to sign up</li>
+                    <a target="_blank" href="./Capture.jpg">
+                        <img src="./Capture.jpg" alt="mongodb" class="img">
+                    </a>
+                    <li class="list">Fill the form that follows to create a free Mongodb Atlas Account</li>
+                    <li class="list">Verify your email account and sign in using your set email and passoword</li>
+                </ol>
+            </div>
+        </div>
+        
+        <!-- ** Introduction -->
+        <div class="topic-holder">
+            <h3 class="topic">Create a Database</h3>
+            <div class="line"></div>
+        </div>
+        
+        <a target="_blank" href="./Capture2.jpg">
+            <img src="./Capture2.jpg" alt="mongodb" class="img">
+        </a>
+        <div class="paragraphs-holder">
+            <p class="paragraph">Notice the "project menu" at top-left coner. Every Mongodb Database must be in a project. Mongodb creates a default project ( <strong class="important-text">'project 0'</strong> ), but you can create as many projects as you want by clicking on the project menu. We'll be using the default for now. </p>
+            <p class="important-sentence">Now lets create your first Database:</p>
+
+            <div class="list-holder paragraph">
+                <!--** Ordered List -->
+                <ol>
+                    <!-- ** Item 1 -->
+                    <li class="list">Click on "Build a Database"</li>
+                    <li class="list">Choose a deployment option</li>
+                    <p class="paragraph">Any of the deployment option will work for this tutorial, but I'll recommend starting out with the free Shared option for learning and exploring MongoDB in a sandbox environment..</p>
+                    <li class="list">Additional Information</li>
+                    <p class="paragraph">You can provide addition information about your Database Cluster, such as Cloud Provider & Region, Cluster Tier etc. I have left every option as default except for the Cluster Name which I've changed to <strong class="important-text">Tutorial-cluster</strong></p>
+                    <a target="_blank" href="./4.jpg">
+                        <img src="./4.jpg" alt="mongodb website" class="img">
+                    </a>
+                    <li class="list">Click "Create Cluster"</li>
+                    <li class="list">Security Quickstart Options</li>
+                    <p>To access data stored in Atlas, you'll need to create users and set up network security controls.</p>
+                    <p>Choose Username and Password as your authentication method and create a user</p>
+                    <p>Choose My Local Environment as your network access method and click "Add My Current IP Address" to give connection access to your current device </p>
+                    <p>Click "finish and close"</p>
+                    <a target="_blank" href="./Capture5.jpg">
+                        <img src="./Capture5.jpg" alt="mongodb website" class="img">
+                    </a>
+                </ol>
+            </div>
+        </div>
+        
+        <!-- ** Introduction -->
+        <div class="topic-holder">
+            <h3 class="topic">Generate a Connection URL</h3>
+            <div class="line"></div>
+        </div>
+        <a target="_blank" href="Capture6.jpg">
+            <img src="Capture6.jpg" alt="mongodb website" class="img">
+        </a>
+        <div class="paragraphs-holder">
+            <p class="paragraph">Now our Database is created, we can now generate a Connection URL to connect to our Database </p>
+            <div class="list-holder paragraph">
+                <!--** Ordered List -->
+                <ol>
+                    <li class="paragraph">Start by clicking on the "connection" button shown in the above image</li>
+                    <li class="paragraph">Next, choose a connection method that suit your use case ( for this tutorial we'll use 'connect your application' )</li>
+                    <li class="paragraph">Choose the <strong class="important-text">driver</strong> and <strong class="important-text">version</strong> you're working with and your <strong class="important-text">connection string</strong> will be generated for you</li>
+                    
+                </ol>
+                <a target="_blank" href="Capture7.jpg">
+                    <img src="Capture7.jpg" alt="mongodb website" class="img">
+                </a>
+                <p class="paragraph">Don't forget to replace the <strong class="important-text"> &lt;password&gt; </strong> param with your Mongodb Atlas Account password</p>
+            </div>
+            
+        </div>
+    </section>
+
+
+
+</body>
+</html>
